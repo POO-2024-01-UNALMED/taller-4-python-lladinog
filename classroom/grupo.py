@@ -4,16 +4,20 @@ class Grupo:
 
     def __init__(self, grupo="grupo predeterminado", asignaturas=None, listadoAlumnos=None):
         self._grupo = grupo
+<<<<<<< HEAD
         self._asignaturas = asignaturas if asignaturas is not None else []
         self.listadoAlumnos = listadoAlumnos if listadoAlumnos is not None else []
+=======
+        self._asignaturas = asignaturas
+        self.listadoAlumnos = listadoAlumnos
+>>>>>>> parent of e2b41ce (Try tree :))
 
     def __str__(self):
         return f"Grupo de estudiantes: {self._grupo}"
 
-    def agregarAlumno(self, alumno, alumnos=None):
-        if alumnos is not None:
-            self.listadoAlumnos.extend(alumnos)
+    def agregarAlumno(self, alumno, alumnos=[]):
         self.listadoAlumnos.append(alumno)
+        self.listadoAlumnos.extend(alumnos)
 
     def listadoAsignaturas(self, **kwargs):
         for key, value in kwargs.items():
