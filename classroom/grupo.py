@@ -1,25 +1,46 @@
 from classroom.asignatura import Asignatura
 class Grupo:
-    grado = "Grado 12"
+    grado = "Grado 6"
 
-    def __init__(self, grupo="Grupo de estudiantes: grupo predeterminado", asignaturas=None, estudiantes=None):
+    def __init__(self, grupo="grupo predeterminado", asignaturas=[], listadoAlumnos=[]):
         self._grupo = grupo
-        self._asignaturas = asignaturas if asignaturas is not None else []
-        self.listadoAlumnos = estudiantes if estudiantes is not None else []
-
-    def listadoAsignaturas(self, **kwargs):
-        for x in kwargs.values():
-            self._asignaturas.append(Asignatura(x))
-
-    def agregarAlumno(self, alumno, lista=None):
-        if lista is None:
-            lista = []
-        lista.append(alumno)
-        self.listadoAlumnos.extend(lista)
+        self._asignaturas = asignaturas
+        self.listadoAlumnos = listadoAlumnos
 
     def __str__(self):
-        return self._grupo
+        return f"Grupo de estudiantes: {self._grupo}"
 
-    @classmethod
-    def asignarNombre(cls, nombre="Grado 6"):
-        cls.grado = nombre
+    def agregarAlumno(self, alumno, alumnos=[]):
+        self.listadoAlumnos.append(alumno)
+        self.listadoAlumnos.extend(alumnos)
+
+    def listadoAsignaturas(self, **kwargs):
+        for key, value in kwargs.items():
+            self._asignaturas.append(Asignatura(value))
+
+    @staticmethod
+    def asignarNombre(nombre="Grado 6"):
+        Grupo.grado = nombre
+
+class Grupo:
+    grado = "Grado 12"
+
+    def __init__(self, grupo="grupo predeterminado", asignaturas=[], listadoAlumnos=[]):
+        self._grupo = grupo
+        self._asignaturas = asignaturas
+        self.listadoAlumnos = listadoAlumnos
+
+    def __str__(self):
+        return f"Grupo de estudiantes: {self._grupo}"
+
+    def agregarAlumno(self, alumno, alumnos=[]):
+        self.listadoAlumnos.append(alumno)
+        self.listadoAlumnos.extend(alumnos)
+
+    def listadoAsignaturas(self, **kwargs):
+        for key, value in kwargs.items():
+            self._asignaturas.append(Asignatura(value))
+
+    @staticmethod
+    def asignarNombre(nombre="Grado 6"):
+        Grupo.grado = nombre

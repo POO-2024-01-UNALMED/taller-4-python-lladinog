@@ -1,8 +1,7 @@
 class Asignatura:
-
-    def __init__(self, nombre, salon=None):
+    def __init__(self, nombre, salon="remoto"):
         self._nombre = nombre
-        self._salon = salon if salon else "Remoto"
-
+        self._salon = salon
+    
     def __str__(self):
-         return f"{self._nombre} {self._salon}" if self._salon else f"{self._nombre}"
+        return f"{self._nombre} {self._salon}"
